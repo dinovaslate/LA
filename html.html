@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="button">Rotate</div>
+    <div class="prompt">
+      <label>Rotate Y</label><br />
+      <input
+        type="range"
+        min="0"
+        max="360"
+        value="30"
+        class="slider"
+        id="myRange"
+        style="--value: 8.3%"
+        name="y"
+        oninput="changeval(event)"
+      /><br />
+      <label>Rotate X</label><br />
+      <input
+        type="range"
+        min="0"
+        max="360"
+        value="21"
+        class="slider"
+        id="myRange"
+        style="--value: 5.83%"
+        name="x"
+        oninput="changeval(event)"
+      />
+    </div>
+    <div
+      class="viewport"
+      style="--rotate-y: 30deg; --rotate-x: 21deg; --scale: 1"
+    >
+      <div class="scene scene1">
+        <div class="caption">
+          Los Angeles
+          <div class="caption-top"></div>
+          <div class="caption-bottom"></div>
+          <div class="caption-left"></div>
+          <div class="caption-right"></div>
+          <div class="caption-back"></div>
+        </div>
+        <div class="letter letter__L">
+          <div class="letter__front letter__L__front moded">
+            L
+            <div class="blob"></div>
+            <div class="blob blob-mod"></div>
+            <div class="blob blob-mod2"></div>
+          </div>
+          <div class="letter__front letter__L__front">
+            L
+            <div class="letter__face letter__L__top"></div>
+            <div class="letter__face letter__L__bottom"></div>
+            <div class="letter__face letter__L__extra"></div>
+            <div class="letter__face letter__L__extra2"></div>
+            <div class="letter__face letter__L__left"></div>
+            <div class="letter__face letter__L__right"></div>
+          </div>
+          <div class="letter__front letter__L__back">L</div>
+        </div>
+        <div class="letter letter__A">
+          <div class="letter__front letter__A__front">A</div>
+          <div class="letter__front letter__A__back">A</div>
+          <div class="letter__face letter__A__left"></div>
+          <div class="letter__face letter__A__left left-mod"></div>
+          <div class="letter__face letter__A__right"></div>
+          <div class="letter__face letter__A__right right-mod"></div>
+          <div class="letter__face letter__A__left2"></div>
+          <div class="letter__face letter__A__right2"></div>
+          <div class="letter__face letter__A__right3"></div>
+          <div class="letter__face letter__A__left3"></div>
+          <div class="letter__face letter__A__top"></div>
+          <div class="letter__face letter__A__top2"></div>
+          <div class="letter__face letter__A__top3"></div>
+          <div class="letter__face letter__A__top4"></div>
+          <div class="letter__face letter__A__top5"></div>
+        </div>
+      </div>
+      <div class="scene scene2">
+        <div class="letter letter__L">
+          <div class="letter__front letter__L__front">
+            L
+            <div class="letter__face letter__L__top"></div>
+            <div class="letter__face letter__L__bottom"></div>
+            <div class="letter__face letter__L__extra"></div>
+            <div class="letter__face letter__L__extra2"></div>
+            <div class="letter__face letter__L__left"></div>
+            <div class="letter__face letter__L__right"></div>
+          </div>
+          <div class="letter__front letter__L__back">L</div>
+        </div>
+        <div class="letter letter__A">
+          <div class="letter__front letter__A__front">A</div>
+          <div class="letter__front letter__A__back">A</div>
+          <div class="letter__face letter__A__left"></div>
+          <div class="letter__face letter__A__right"></div>
+          <div class="letter__face letter__A__left2"></div>
+          <div class="letter__face letter__A__right2"></div>
+          <div class="letter__face letter__A__right3"></div>
+          <div class="letter__face letter__A__left3"></div>
+          <div class="letter__face letter__A__top"></div>
+          <div class="letter__face letter__A__top2"></div>
+          <div class="letter__face letter__A__top3"></div>
+          <div class="letter__face letter__A__top4"></div>
+          <div class="letter__face letter__A__top5"></div>
+        </div>
+      </div>
+      <div class="scene scene3">
+        <div class="letter letter__L">
+          <div class="letter__front letter__L__front">
+            L
+            <div class="letter__face letter__L__top"></div>
+            <div class="letter__face letter__L__bottom"></div>
+            <div class="letter__face letter__L__extra"></div>
+            <div class="letter__face letter__L__extra2"></div>
+            <div class="letter__face letter__L__left"></div>
+            <div class="letter__face letter__L__right"></div>
+          </div>
+          <div class="letter__front letter__L__back">L</div>
+        </div>
+        <div class="letter letter__A">
+          <div class="letter__front letter__A__front">A</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const changeval = (e) => {
+        const input = e.currentTarget;
+        const value = parseInt(input.value);
+        const valueToAdd = (value / 360) * 100;
+        const viewport = document.querySelector(".viewport");
+        const toChange = input.name === "y" ? "--rotate-y" : "--rotate-x";
+        viewport.style.setProperty(toChange, `${value}deg`);
+        input.style.setProperty("--value", `${valueToAdd}%`);
+      };
+    </script>
+  </body>
+</html>
